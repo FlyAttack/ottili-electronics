@@ -91,4 +91,45 @@
     background-color: #005ecb;
     transform: translateY(-2px);
   }
+
+.button-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 15px;
+  margin: 30px 0;
+}
+
+.ebay-button,
+.kleinanzeigen-button {
+  display: inline-block;
+  padding: 14px 28px;
+  border-radius: 8px;
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 1.1em;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+  transition: background-color 0.3s, transform 0.2s;
+}
+
+.ebay-button {
+  background-color: #007aff;
+  color: #fff;
+}
+
+.ebay-button:hover {
+  background-color: #005ecb;
+  transform: translateY(-2px);
+}
+
+.kleinanzeigen-button {
+  background-color: #00a82d;
+  color: #fff;
+}
+
+.kleinanzeigen-button:hover {
+  background-color: #008f26;
+  transform: translateY(-2px);
+}
+
   
