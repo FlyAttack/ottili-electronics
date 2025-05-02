@@ -95,19 +95,16 @@
   text-decoration: none;
   box-shadow: 0 4px 14px rgba(0, 0, 0, 0.1);
   transition: all 0.25s ease-in-out;
-  width: 300px;
-}
-
-.big-button:hover {
-  transform: scale(1.03);
+  width: 90%;
+  max-width: 400px;
+  text-align: center;
 }
 
 .big-button img {
-  height: 24px;
-  width: 24px;
+  height: 28px;
+  width: 28px;
   object-fit: contain;
 }
-
 
 .ebay-button {
   background-color: #007aff;
@@ -118,10 +115,10 @@
 }
 
 .kleinanzeigen-button {
-  background-color: #00a82d;
+  background-color: #007c2e;
 }
 
 .kleinanzeigen-button:hover {
-  background-color: #008f26;
+  background-color: #005e23;
 }
 
