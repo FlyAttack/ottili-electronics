@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="de" data-theme="light">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Geräte-Tracking - Ottili Electronics</title>
+    <meta name="description" content="Verfolgen Sie den Status Ihrer Bestellung oder Reparatur in Echtzeit.">
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="css/tracking.css">
+    <link rel="icon" href="img/logo.png" type="image/png">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <header class="main-header">
+        <!-- Header-Inhalt wie in index.html -->
+    </header>
+
+    <main>
+        <section class="tracking-hero">
+            <div class="container">
+                <h1>Geräte-Tracking</h1>
+                <p>Verfolgen Sie den Status Ihrer Bestellung oder Reparatur in Echtzeit</p>
+            </div>
+        </section>
+
+        <section class="tracking-search">
+            <div class="container">
+                <div class="search-container">
+                    <form id="tracking-form" class="tracking-form">
+                        <div class="input-group">
+                            <input type="text" id="tracking-number" placeholder="Tracking-Nummer eingeben" required>
+                            <button type="submit" class="btn btn-primary">
+                                <i class="fas fa-search"></i> Suchen
+                            </button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </section>
+
+        <section class="tracking-result" id="tracking-result">
+            <div class="container">
+                <div class="tracking-card">
+                    <div class="tracking-header">
+                        <div class="tracking-info">
+                            <h2>Bestellung #<span id="order-number">-</span></h2>
+                            <p class="tracking-status" id="tracking-status">Status wird geladen...</p>
+                        </div>
+                        <div class="tracking-actions">
+                            <button class="btn btn-secondary" id="print-tracking">
+                                <i class="fas fa-print"></i> Drucken
+                            </button>
+                            <button class="btn btn-secondary" id="share-tracking">
+                                <i class="fas fa-share-alt"></i> Teilen
+                            </button>
+                        </div>
+                    </div>
+
+                    <div class="tracking-timeline">
+                        <div class="timeline-container" id="timeline-container">
+                            <!-- Wird dynamisch gefüllt -->
+                        </div>
+                    </div>
+
+                    <div class="tracking-details">
+                        <div class="details-grid">
+                            <div class="detail-card">
+                                <h3>Geräteinformationen</h3>
+                                <div class="detail-content" id="device-info">
+                                    <!-- Wird dynamisch gefüllt -->
+                                </div>
+                            </div>
+                            <div class="detail-card">
+                                <h3>Lieferinformationen</h3>
+                                <div class="detail-content" id="delivery-info">
+                                    <!-- Wird dynamisch gefüllt -->
+                                </div>
+                            </div>
+                            <div class="detail-card">
+                                <h3>Kontaktinformationen</h3>
+                                <div class="detail-content" id="contact-info">
+                                    <!-- Wird dynamisch gefüllt -->
+                                </div>
+                            </div>
+                            <div class="detail-card">
+                                <h3>Zusätzliche Informationen</h3>
+                                <div class="detail-content" id="additional-info">
+                                    <!-- Wird dynamisch gefüllt -->
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="tracking-features">
+            <div class="container">
+                <h2>Tracking-Features</h2>
+                <div class="features-grid">
+                    <div class="feature-card">
+                        <i class="fas fa-map-marker-alt"></i>
+                        <h3>Echtzeit-Tracking</h3>
+                        <p>Verfolgen Sie den genauen Standort Ihres Geräts</p>
+                    </div>
+                    <div class="feature-card">
+                        <i class="fas fa-bell"></i>
+                        <h3>Status-Benachrichtigungen</h3>
+                        <p>Erhalten Sie Updates per E-Mail oder SMS</p>
+                    </div>
+                    <div class="feature-card">
+                        <i class="fas fa-history"></i>
+                        <h3>Detaillierter Verlauf</h3>
+                        <p>Vollständige Historie aller Statusänderungen</p>
+                    </div>
+                    <div class="feature-card">
+                        <i class="fas fa-shield-alt"></i>
+                        <h3>Sicherer Zugriff</h3>
+                        <p>Geschützter Zugang zu Ihren Tracking-Informationen</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="main-footer">
+        <!-- Footer-Inhalt wie in index.html -->
+    </footer>
+
+    <!-- Share Modal -->
+    <div class="modal" id="share-modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3>Tracking teilen</h3>
+                <button class="close-modal">&times;</button>
+            </div>
+            <div class="modal-body">
+                <div class="share-options">
+                    <button class="share-btn email">
+                        <i class="fas fa-envelope"></i>
+                        <span>E-Mail</span>
+                    </button>
+                    <button class="share-btn whatsapp">
+                        <i class="fab fa-whatsapp"></i>
+                        <span>WhatsApp</span>
+                    </button>
+                    <button class="share-btn telegram">
+                        <i class="fab fa-telegram"></i>
+                        <span>Telegram</span>
+                    </button>
+                    <button class="share-btn copy">
+                        <i class="fas fa-link"></i>
+                        <span>Link kopieren</span>
+                    </button>
+                </div>
+                <div class="share-link">
+                    <input type="text" id="share-link-input" readonly>
+                    <button class="btn btn-secondary" id="copy-link">
+                        <i class="fas fa-copy"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="js/tracking.js"></script>
+</body>
+</html> 

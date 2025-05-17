@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="de" data-theme="light">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Smartphone-Diagnose - Ottili Electronics</title>
+    <meta name="description" content="Diagnostizieren Sie Probleme mit Ihrem Smartphone und erhalten Sie professionelle Reparaturvorschläge.">
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="css/diagnose.css">
+    <link rel="icon" href="img/logo.png" type="image/png">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <header class="main-header">
+        <!-- Header-Inhalt wie in index.html -->
+    </header>
+
+    <main>
+        <section class="diagnose-hero">
+            <div class="container">
+                <h1>Smartphone-Diagnose</h1>
+                <p>Finden Sie heraus, was mit Ihrem Gerät nicht stimmt und erhalten Sie professionelle Lösungsvorschläge</p>
+            </div>
+        </section>
+
+        <section class="diagnose-tool">
+            <div class="container">
+                <div class="diagnose-container">
+                    <div class="device-selection">
+                        <h2>Wählen Sie Ihr Gerät</h2>
+                        <div class="device-grid">
+                            <div class="device-card" data-device="iphone">
+                                <img src="img/devices/iphone.png" alt="iPhone">
+                                <h3>iPhone</h3>
+                            </div>
+                            <div class="device-card" data-device="samsung">
+                                <img src="img/devices/samsung.png" alt="Samsung">
+                                <h3>Samsung</h3>
+                            </div>
+                            <div class="device-card" data-device="xiaomi">
+                                <img src="img/devices/xiaomi.png" alt="Xiaomi">
+                                <h3>Xiaomi</h3>
+                            </div>
+                            <div class="device-card" data-device="huawei">
+                                <img src="img/devices/huawei.png" alt="Huawei">
+                                <h3>Huawei</h3>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="diagnose-form" id="diagnose-form">
+                        <h2>Beschreiben Sie das Problem</h2>
+                        <form id="problem-form">
+                            <div class="form-group">
+                                <label for="device-model">Modell</label>
+                                <select id="device-model" required>
+                                    <option value="">Bitte wählen</option>
+                                </select>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="problem-category">Problemkategorie</label>
+                                <select id="problem-category" required>
+                                    <option value="">Bitte wählen</option>
+                                    <option value="display">Display</option>
+                                    <option value="battery">Akku</option>
+                                    <option value="camera">Kamera</option>
+                                    <option value="performance">Leistung</option>
+                                    <option value="connectivity">Konnektivität</option>
+                                    <option value="software">Software</option>
+                                    <option value="other">Sonstiges</option>
+                                </select>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="problem-description">Beschreibung des Problems</label>
+                                <textarea id="problem-description" rows="4" required 
+                                    placeholder="Beschreiben Sie das Problem so genau wie möglich..."></textarea>
+                            </div>
+
+                            <div class="form-group">
+                                <label>Wann tritt das Problem auf?</label>
+                                <div class="checkbox-group">
+                                    <label>
+                                        <input type="checkbox" name="problem-timing" value="always">
+                                        Immer
+                                    </label>
+                                    <label>
+                                        <input type="checkbox" name="problem-timing" value="sometimes">
+                                        Manchmal
+                                    </label>
+                                    <label>
+                                        <input type="checkbox" name="problem-timing" value="specific">
+                                        Nur in bestimmten Situationen
+                                    </label>
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <label>Haben Sie bereits etwas versucht?</label>
+                                <div class="checkbox-group">
+                                    <label>
+                                        <input type="checkbox" name="attempts" value="restart">
+                                        Neustart
+                                    </label>
+                                    <label>
+                                        <input type="checkbox" name="attempts" value="factory-reset">
+                                        Werkseinstellungen
+                                    </label>
+                                    <label>
+                                        <input type="checkbox" name="attempts" value="update">
+                                        Update
+                                    </label>
+                                    <label>
+                                        <input type="checkbox" name="attempts" value="nothing">
+                                        Nichts
+                                    </label>
+                                </div>
+                            </div>
+
+                            <button type="submit" class="btn btn-primary">
+                                <i class="fas fa-search"></i> Diagnose starten
+                            </button>
+                        </form>
+                    </div>
+
+                    <div class="diagnose-result" id="diagnose-result">
+                        <h2>Diagnose-Ergebnis</h2>
+                        <div class="result-content">
+                            <div class="problem-summary">
+                                <h3>Problemzusammenfassung</h3>
+                                <div id="problem-summary-content"></div>
+                            </div>
+
+                            <div class="possible-causes">
+                                <h3>Mögliche Ursachen</h3>
+                                <ul id="causes-list"></ul>
+                            </div>
+
+                            <div class="solutions">
+                                <h3>Lösungsvorschläge</h3>
+                                <div id="solutions-content"></div>
+                            </div>
+
+                            <div class="repair-options">
+                                <h3>Reparatur-Optionen</h3>
+                                <div id="repair-options-content"></div>
+                            </div>
+
+                            <div class="action-buttons">
+                                <button class="btn btn-secondary" id="print-diagnose">
+                                    <i class="fas fa-print"></i> Diagnose drucken
+                                </button>
+                                <button class="btn btn-primary" id="book-repair">
+                                    <i class="fas fa-tools"></i> Reparatur buchen
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="diagnose-features">
+            <div class="container">
+                <h2>Vorteile unserer Diagnose</h2>
+                <div class="features-grid">
+                    <div class="feature-card">
+                        <i class="fas fa-bolt"></i>
+                        <h3>Schnelle Analyse</h3>
+                        <p>Erhalten Sie innerhalb von Sekunden eine professionelle Einschätzung</p>
+                    </div>
+                    <div class="feature-card">
+                        <i class="fas fa-shield-alt"></i>
+                        <h3>Zuverlässige Diagnose</h3>
+                        <p>Basierend auf jahrelanger Erfahrung und tausenden von Reparaturen</p>
+                    </div>
+                    <div class="feature-card">
+                        <i class="fas fa-euro-sign"></i>
+                        <h3>Kostenlose Beratung</h3>
+                        <p>Erste Diagnose und Beratung sind für Sie kostenlos</p>
+                    </div>
+                    <div class="feature-card">
+                        <i class="fas fa-tools"></i>
+                        <h3>Professionelle Reparatur</h3>
+                        <p>Direkte Buchung einer professionellen Reparatur möglich</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="main-footer">
+        <!-- Footer-Inhalt wie in index.html -->
+    </footer>
+
+    <script src="js/diagnose.js"></script>
+</body>
+</html> 

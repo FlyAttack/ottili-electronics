@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="de" data-theme="light">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Trade-In - Ottili Electronics</title>
+    <meta name="description" content="Tauschen Sie Ihr altes Smartphone gegen ein neues Gerät ein. Faire Preise und schnelle Abwicklung.">
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="css/trade-in.css">
+    <link rel="icon" href="img/logo.png" type="image/png">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <header class="main-header">
+        <!-- Header-Inhalt wie in index.html -->
+    </header>
+
+    <main>
+        <section class="trade-in-hero">
+            <div class="container">
+                <h1>Smartphone Trade-In</h1>
+                <p>Tauschen Sie Ihr altes Gerät gegen ein neues ein und sparen Sie dabei</p>
+            </div>
+        </section>
+
+        <section class="trade-in-process">
+            <div class="container">
+                <div class="process-steps">
+                    <div class="step">
+                        <i class="fas fa-mobile-alt"></i>
+                        <h3>1. Gerät auswählen</h3>
+                        <p>Wählen Sie Ihr Gerät aus und beschreiben Sie den Zustand</p>
+                    </div>
+                    <div class="step">
+                        <i class="fas fa-calculator"></i>
+                        <h3>2. Wert berechnen</h3>
+                        <p>Wir berechnen den Wert Ihres Geräts</p>
+                    </div>
+                    <div class="step">
+                        <i class="fas fa-exchange-alt"></i>
+                        <h3>3. Tauschen</h3>
+                        <p>Erhalten Sie Ihr neues Gerät und sparen Sie dabei</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="trade-in-form-section">
+            <div class="container">
+                <form id="trade-in-form" class="trade-in-form">
+                    <div class="form-section">
+                        <h2>Geräteinformationen</h2>
+                        <div class="form-group">
+                            <label for="brand">Marke</label>
+                            <select id="brand" name="brand" required>
+                                <option value="">Bitte wählen</option>
+                                <option value="iPhone">iPhone</option>
+                                <option value="Samsung">Samsung</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="model">Modell</label>
+                            <select id="model" name="model" required>
+                                <option value="">Bitte wählen</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="condition">Zustand</label>
+                            <select id="condition" name="condition" required>
+                                <option value="">Bitte wählen</option>
+                                <option value="new">Wie neu</option>
+                                <option value="good">Sehr gut</option>
+                                <option value="fair">Gut</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="storage">Speicherkapazität</label>
+                            <select id="storage" name="storage" required>
+                                <option value="">Bitte wählen</option>
+                                <option value="64">64 GB</option>
+                                <option value="128">128 GB</option>
+                                <option value="256">256 GB</option>
+                                <option value="512">512 GB</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label>Zubehör</label>
+                            <div class="checkbox-group">
+                                <label>
+                                    <input type="checkbox" name="accessories" value="charger">
+                                    Ladegerät
+                                </label>
+                                <label>
+                                    <input type="checkbox" name="accessories" value="case">
+                                    Schutzhülle
+                                </label>
+                                <label>
+                                    <input type="checkbox" name="accessories" value="screen_protector">
+                                    Bildschirmschutz
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="form-section">
+                        <h2>Kontaktinformationen</h2>
+                        <div class="form-group">
+                            <label for="name">Name</label>
+                            <input type="text" id="name" name="name" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="email">E-Mail</label>
+                            <input type="email" id="email" name="email" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="phone">Telefon</label>
+                            <input type="tel" id="phone" name="phone" required>
+                        </div>
+                    </div>
+
+                    <div id="device-details" class="device-details">
+                        <!-- Wird dynamisch gefüllt -->
+                    </div>
+
+                    <div class="form-actions">
+                        <button type="submit" class="btn btn-primary">Angebot erhalten</button>
+                    </div>
+                </form>
+
+                <div id="trade-in-result" class="trade-in-result">
+                    <!-- Wird dynamisch gefüllt -->
+                </div>
+
+                <div id="trade-in-error" class="trade-in-error">
+                    <!-- Wird dynamisch gefüllt -->
+                </div>
+            </div>
+        </section>
+
+        <section class="trade-in-benefits">
+            <div class="container">
+                <h2>Vorteile des Trade-In-Programms</h2>
+                <div class="benefits-grid">
+                    <div class="benefit-card">
+                        <i class="fas fa-euro-sign"></i>
+                        <h3>Faire Preise</h3>
+                        <p>Wir bieten Ihnen faire Preise basierend auf dem aktuellen Marktwert</p>
+                    </div>
+                    <div class="benefit-card">
+                        <i class="fas fa-shield-alt"></i>
+                        <h3>Sicherer Prozess</h3>
+                        <p>Geschützter Zahlungsverkehr und garantierte Rücknahme</p>
+                    </div>
+                    <div class="benefit-card">
+                        <i class="fas fa-truck"></i>
+                        <h3>Kostenloser Versand</h3>
+                        <p>Wir übernehmen die Versandkosten für Ihr altes Gerät</p>
+                    </div>
+                    <div class="benefit-card">
+                        <i class="fas fa-clock"></i>
+                        <h3>Schnelle Abwicklung</h3>
+                        <p>Innerhalb von 24 Stunden erhalten Sie Ihr Angebot</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="main-footer">
+        <!-- Footer-Inhalt wie in index.html -->
+    </footer>
+
+    <script src="js/trade-in.js"></script>
+</body>
+</html> 

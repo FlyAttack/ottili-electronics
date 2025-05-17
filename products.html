@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Produkte - Ottili Electronics</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="product-controls">
+        <div class="search-filter-container">
+            <input type="text" id="productSearch" placeholder="Produkt suchen..." class="search-input">
+            <select id="filterCondition" class="filter-select">
+                <option value="">Alle Zustände</option>
+                <option value="Neu">Neu</option>
+                <option value="Gebraucht">Gebraucht</option>
+                <option value="Als Ersatzteil / defekt">Als Ersatzteil / defekt</option>
+            </select>
+            <select id="sortProducts" class="sort-select">
+                <option value="">Sortierung</option>
+                <option value="price-asc">Preis aufsteigend</option>
+                <option value="price-desc">Preis absteigend</option>
+                <option value="title-asc">A-Z</option>
+                <option value="title-desc">Z-A</option>
+            </select>
+        </div>
+    </div>
+
+    <div class="product-gallery-grid" id="productGallery">
+        <div class="product-card" data-title="Apple iPhone 6S Logicboard Motherboard 32GB Spacegrau" data-condition="Gebraucht" data-price="24.95">
+            <div class="product-badge">Gebraucht</div>
+            <a href="product.html?ProductID=127098415520" class="product-link">
+                <img src="img/12709841552001.webp" alt="Apple iPhone 6S Logicboard" loading="lazy">
+                <h3>Apple iPhone 6S Logicboard Motherboard 32GB Spacegrau</h3>
+            </a>
+            <div class="product-meta">
+                <span class="product-price">24,95&nbsp;€</span>
+                <span class="product-condition">Gebraucht</span>
+            </div>
+            <a class="product-btn" href="product.html?ProductID=127098415520">Zum Produkt</a>
+        </div>
+        <!-- Weitere Produktkarten hier... -->
+    </div>
+
+    <script>
+        function filterProducts() {
+            const input = document.getElementById('productSearch').value.toLowerCase();
+            const filterCondition = document.getElementById('filterCondition').value;
+            const sortValue = document.getElementById('sortProducts').value;
+            let cards = Array.from(document.querySelectorAll('.product-card'));
+            
+            // Filter
+            cards.forEach(card => {
+                const title = card.getAttribute('data-title').toLowerCase();
+                const condition = card.getAttribute('data-condition');
+                const matchesTitle = title.includes(input);
+                const matchesCondition = !filterCondition || condition === filterCondition;
+                card.style.display = (matchesTitle && matchesCondition) ? '' : 'none';
+            });
+            
+            // Sort
+            if (sortValue) {
+                let sorted = cards.filter(card => card.style.display !== 'none');
+                if (sortValue === 'price-asc') {
+                    sorted.sort((a, b) => parseFloat(a.getAttribute('data-price')) - parseFloat(b.getAttribute('data-price')));
+                } else if (sortValue === 'price-desc') {
+                    sorted.sort((a, b) => parseFloat(b.getAttribute('data-price')) - parseFloat(a.getAttribute('data-price')));
+                } else if (sortValue === 'title-asc') {
+                    sorted.sort((a, b) => a.getAttribute('data-title').localeCompare(b.getAttribute('data-title')));
+                } else if (sortValue === 'title-desc') {
+                    sorted.sort((a, b) => b.getAttribute('data-title').localeCompare(a.getAttribute('data-title')));
+                }
+                const gallery = document.getElementById('productGallery');
+                sorted.forEach(card => gallery.appendChild(card));
+            }
+        }
+
+        // Event Listener für Filter und Sortierung
+        document.getElementById('productSearch').addEventListener('input', filterProducts);
+        document.getElementById('filterCondition').addEventListener('change', filterProducts);
+        document.getElementById('sortProducts').addEventListener('change', filterProducts);
+    </script>
+</body>
+</html> 

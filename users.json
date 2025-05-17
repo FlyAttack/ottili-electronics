@@ -1,0 +1,19 @@
+{
+    "users": {
+        "williott8411": {
+            "password": "?OEFlyAttack!3",
+            "role": "admin",
+            "created": "2024-03-20"
+        },
+        "NoobiArtur": {
+            "password": "williott8411Artur",
+            "role": "editor",
+            "created": "2024-03-20"
+        },
+        "admin": {
+            "password": "?OEFlyAttack!3",
+            "role": "admin",
+            "created": "2024-03-20"
+        }
+    }
+} 

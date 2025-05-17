@@ -1,95 +1,445 @@
 <!DOCTYPE html>
-<html lang="de">
+<html lang="de" data-theme="light">
 <head>
   <meta charset="UTF-8">
-  <title>Ottili Electronics – geprüfte gebrauchte Smartphones aus Schlüsselfeld</title>
-  <meta name="description" content="Ottili Electronics ist dein privater Online-Anbieter für geprüfte gebrauchte Handys. Technik mit Garantie, Fairness und Verantwortung. Jetzt entdecken.">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Ottili Electronics – Geprüfte gebrauchte Smartphones</title>
+  <meta name="description" content="Professioneller An- und Verkauf von gebrauchten Smartphones. Qualität, Sicherheit und faire Preise.">
+  <meta name="keywords" content="gebrauchte Smartphones, iPhone gebraucht, Handy mit Garantie, Ottili Electronics">
+  <meta name="author" content="Ottili Electronics">
+  <meta property="og:title" content="Ottili Electronics – Geprüfte gebrauchte Smartphones">
+  <meta property="og:description" content="Privater Technikhandel mit Verantwortung">
+  <meta property="og:image" content="img/logo.png">
+  <meta property="og:url" content="https://ottili-electronics.de">
+  <link rel="stylesheet" href="styles.css">
   <link rel="stylesheet" href="style.css">
   <link rel="icon" href="img/logo.png" type="image/png">
+  <link rel="icon" type="image/x-icon" href="img/favicon.ico">
+  <!-- Font Awesome für Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "LocalBusiness",
+    "name": "Ottili Electronics",
+    "description": "Privater Anbieter für geprüfte gebrauchte Smartphones",
+    "offers": {
+      "@type": "Offer",
+      "itemOffered": {
+        "@type": "Product",
+        "name": "Gebrauchte Smartphones"
+      }
+    }
+  }
+  </script>
 </head>
 <body>
-  <header>
-    <img src="img/logo.png" alt="Ottili Electronics Logo">
+  <header class="main-header">
+    <div class="container header-content">
+      <a href="index.html" class="logo-link">
+        <img src="img/logo.png" alt="Ottili Electronics Logo" class="logo">
+      </a>
+      <button class="mobile-menu-toggle" aria-label="Menü öffnen">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+      <nav class="main-nav">
+        <a href="products.html" class="nav-link">Produkte</a>
+        <a href="index.html#about" class="nav-link">Über uns</a>
+        <a href="garantie.html" class="nav-link">Garantie</a>
+        <a href="index.html#contact" class="nav-link">Kontakt</a>
+        <div class="nav-dropdown">
+          <a href="#" class="nav-link">Rechtliches <i class="fas fa-chevron-down"></i></a>
+          <div class="dropdown-content">
+            <a href="impressum.html">Impressum</a>
+            <a href="datenschutz.html">Datenschutz</a>
+            <a href="agb.html">AGB</a>
+            <a href="widerruf.html">Widerruf</a>
+          </div>
+        </div>
+        <a href="adminpanel.html" class="nav-link admin-link"><i class="fas fa-lock"></i> Admin</a>
+      </nav>
+      <div class="theme-switch-wrapper">
+        <label class="theme-switch" for="theme-toggle">
+          <input type="checkbox" id="theme-toggle" />
+          <div class="slider round"></div>
+        </label>
+      </div>
+    </div>
   </header>
-  <nav>
-    <a href="index.html">Start</a>
-    <a href="garantie.html">Garantie</a>
-    <a href="legal.html">Rechtliches</a>
-    <a href="datenschutz.html">Datenschutz</a>
-    <a href="impressum.html">Impressum</a>
-  </nav>
 
   <main>
-    <h1>Willkommen bei Ottili Electronics</h1>
-    <p><strong>Privater Technikhandel mit Verantwortung.</strong></p>
-
-    <section>
-      <h2>Was ist Ottili Electronics?</h2>
-      <p>Ottili Electronics ist ein privates Projekt aus Schlüsselfeld in Oberfranken. Wir verkaufen hochwertige, gebrauchte Smartphones mit Gewissen. Kein Unternehmen, keine leeren Versprechen – sondern ehrliche Technik von Mensch zu Mensch.</p>
-      <p>Alle Geräte stammen aus seriösen Quellen, werden sorgfältig geprüft, zurückgesetzt und sicher verpackt. Der Fokus liegt auf Apple iPhones, aber auch Samsung, Xiaomi oder andere bekannte Marken sind gelegentlich dabei.</p>
+    <section class="hero-section">
+      <div class="container hero-content">
+        <h1 class="hero-title">Willkommen bei Ottili Electronics</h1>
+        <p class="hero-subtitle">Ihr vertrauenswürdiger Partner für gebrauchte Smartphones</p>
+        <div class="hero-cta">
+          <a href="#products" class="btn btn-primary">Produkte entdecken</a>
+          <a href="#contact" class="btn btn-secondary">Kontakt aufnehmen</a>
+        </div>
+        <div class="hero-features">
+          <div class="feature">
+            <i class="fas fa-check-circle"></i>
+            <span>Geprüfte Qualität</span>
+          </div>
+          <div class="feature">
+            <i class="fas fa-shield-alt"></i>
+            <span>12 Monate Garantie</span>
+          </div>
+          <div class="feature">
+            <i class="fas fa-truck"></i>
+            <span>Kostenloser Versand</span>
+          </div>
+        </div>
+      </div>
+      <div class="hero-wave">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320">
+          <path fill="currentColor" fill-opacity="1" d="M0,96L48,112C96,128,192,160,288,160C384,160,480,128,576,122.7C672,117,768,139,864,149.3C960,160,1056,160,1152,138.7C1248,117,1344,75,1392,53.3L1440,32L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z"></path>
+        </svg>
+      </div>
     </section>
 
-    <section>
-      <h2>Was wir anbieten</h2>
-      <ul>
-        <li>🛠️ <strong>Geprüfte, voll funktionsfähige Smartphones</strong> mit professioneller Aufbereitung</li>
-        <li>🔒 <strong>Privatverkauf mit freiwilliger 1-Monats-Garantie</strong> auf technische Defekte</li>
-        <li>📦 <strong>Schneller Versand</strong> direkt aus Deutschland</li>
-        <li>📄 <strong>Übersicht zur Bestellung</strong> als Quittung liegt jeder Lieferung bei</li>
-        <li>💬 <strong>Support per E-Mail</strong> bei Fragen oder Problemen: <a href="mailto:support@flyattack.com">support@flyattack.com</a></li>
-      </ul>
+    <section id="products" class="products-section">
+      <div class="container">
+        <div class="section-header">
+          <h2 class="section-title">Unsere Produkte</h2>
+          <p class="section-subtitle">Entdecken Sie unsere sorgfältig geprüften Smartphones</p>
+        </div>
+        <div class="products-filter">
+          <div class="search-bar">
+            <input type="text" id="product-search" placeholder="Produkt suchen...">
+            <i class="fas fa-search"></i>
+          </div>
+          <div class="filter-options">
+            <select id="condition-filter">
+              <option value="all">Alle Zustände</option>
+              <option value="new">Wie neu</option>
+              <option value="good">Sehr gut</option>
+              <option value="fair">Gut</option>
+            </select>
+            <select id="sort-filter">
+              <option value="price-asc">Preis aufsteigend</option>
+              <option value="price-desc">Preis absteigend</option>
+              <option value="name-asc">Name A-Z</option>
+              <option value="name-desc">Name Z-A</option>
+            </select>
+          </div>
+        </div>
+        <div class="products-grid" id="products-grid">
+          <!-- Produkte werden hier dynamisch eingefügt -->
+        </div>
+      </div>
     </section>
 
-    <section>
-      <h2>Warum bei uns kaufen?</h2>
-      <p>Viele Verkäufer bieten Technik an – wir bieten <em>Verantwortung</em>. Als Privatperson legen wir besonderen Wert auf Transparenz, Kommunikation und Kulanz. Du bekommst keine Massenabfertigung, sondern ein Gerät, das einzeln geprüft wurde – mit einem persönlichen Anspruch an Qualität.</p>
+    <section id="about" class="about-section">
+      <div class="container">
+        <div class="section-header">
+          <h2 class="section-title">Über Ottili Electronics</h2>
+          <p class="section-subtitle">Ihr Partner für Qualität und Vertrauen</p>
+        </div>
+        <div class="features-grid">
+          <div class="feature-card">
+            <i class="fas fa-check-circle feature-icon"></i>
+            <h3>Geprüfte Qualität</h3>
+            <p>Jedes Gerät wird von unseren Experten sorgfältig getestet und zertifiziert.</p>
+          </div>
+          <div class="feature-card">
+            <i class="fas fa-shield-alt feature-icon"></i>
+            <h3>Sicherer Kauf</h3>
+            <p>Geschützter Zahlungsverkehr und garantierte Rücknahme bei Mängeln.</p>
+          </div>
+          <div class="feature-card">
+            <i class="fas fa-tools feature-icon"></i>
+            <h3>Professioneller Service</h3>
+            <p>Kompetente Beratung und schneller Support bei allen Fragen.</p>
+          </div>
+        </div>
+        <div class="about-content">
+          <div class="about-text">
+            <h3>Unsere Mission</h3>
+            <p>Bei Ottili Electronics setzen wir auf Nachhaltigkeit und Qualität. Wir geben gebrauchten Smartphones ein zweites Leben und bieten Ihnen dabei höchste Qualität und Sicherheit.</p>
+            <h3>Warum wir?</h3>
+            <ul class="about-list">
+              <li><i class="fas fa-check"></i> Professionelle Prüfung aller Geräte</li>
+              <li><i class="fas fa-check"></i> 12 Monate Garantie auf alle Produkte</li>
+              <li><i class="fas fa-check"></i> Kostenloser Versand</li>
+              <li><i class="fas fa-check"></i> Persönliche Beratung</li>
+            </ul>
+          </div>
+          <div class="about-image">
+            <img src="img/about-image.jpg" alt="Ottili Electronics Team" class="rounded-image">
+          </div>
+        </div>
+      </div>
     </section>
 
-    <section>
-      <h2>Besonders gefragt bei uns:</h2>
-      <ul>
-        <li>📱 iPhone 8, iPhone SE 2020, iPhone XR – ideal für Einsteiger</li>
-        <li>🔋 Austauschgeräte mit gutem Akkuzustand</li>
-        <li>🔁 Wechselgeräte für Schule, Arbeit, Familie</li>
-        <li>💡 Perfekt für Schüler, Eltern, Senioren oder als Zweithandy</li>
-      </ul>
+    <section id="warranty" class="warranty-section">
+      <div class="container">
+        <div class="section-header">
+          <h2 class="section-title">Unsere Garantie</h2>
+          <p class="section-subtitle">Für Ihr Vertrauen und Ihre Sicherheit</p>
+        </div>
+        <div class="warranty-content">
+          <div class="warranty-card">
+            <h3>Was wir garantieren</h3>
+            <ul class="warranty-list">
+              <li>12 Monate Garantie auf alle Geräte</li>
+              <li>Geprüfte Funktionalität</li>
+              <li>Originale Ersatzteile</li>
+              <li>Schneller Support</li>
+            </ul>
+          </div>
+          <div class="warranty-card">
+            <h3>Zusätzliche Vorteile</h3>
+            <ul class="warranty-list">
+              <li>Kostenlose Beratung</li>
+              <li>Fairer Ankaufspreis</li>
+              <li>Transparente Prozesse</li>
+              <li>Flexible Zahlungsoptionen</li>
+            </ul>
+          </div>
+        </div>
+        <div class="warranty-cta">
+          <a href="garantie.html" class="btn btn-primary">Mehr erfahren</a>
+        </div>
+      </div>
     </section>
 
-    <section>
-<h2>Jetzt kaufen</h2>
-<p>Unsere aktuellen Angebote findest du hier:</p>
-
-<div class="button-container">
-  <a href="https://www.ebay.de/usr/ottili_electronics" target="_blank" class="big-button ebay-button">
-    <img src="img/ebay-logo.png" alt="eBay Logo">
-    Zu unserem eBay Shop
-  </a>
-  <a href="https://www.kleinanzeigen.de/s-bestandsliste.html?userId=136834432" target="_blank" class="big-button kleinanzeigen-button">
-    <img src="img/kleinanzeigen-logo.png" alt="Kleinanzeigen Logo">
-    Zu unserem Kleinanzeigen Shop
-  </a>
-</div>
-
+    <section id="contact" class="contact-section">
+      <div class="container">
+        <div class="section-header">
+          <h2 class="section-title">Kontaktieren Sie uns</h2>
+          <p class="section-subtitle">Wir sind für Sie da</p>
+        </div>
+        <div class="contact-container">
+          <div class="contact-info">
+            <div class="contact-card">
+              <h3><i class="fas fa-clock"></i> Öffnungszeiten</h3>
+              <p>Mo-Fr: 9:00 - 18:00 Uhr</p>
+              <p>Sa: 10:00 - 14:00 Uhr</p>
+            </div>
+            <div class="contact-card">
+              <h3><i class="fas fa-envelope"></i> E-Mail</h3>
+              <p>info@ottili-electronics.de</p>
+            </div>
+            <div class="contact-card">
+              <h3><i class="fas fa-phone"></i> Telefon</h3>
+              <p>+49 (0) XXX XXX XXX</p>
+            </div>
+          </div>
+          <form class="contact-form" action="#" method="POST" id="contact-form">
+            <div class="form-group">
+              <label for="name">Name</label>
+              <input type="text" id="name" name="name" class="form-control" required>
+            </div>
+            <div class="form-group">
+              <label for="email">E-Mail</label>
+              <input type="email" id="email" name="email" class="form-control" required>
+            </div>
+            <div class="form-group">
+              <label for="subject">Betreff</label>
+              <select id="subject" name="subject" class="form-control" required>
+                <option value="">Bitte wählen</option>
+                <option value="kauf">Kaufanfrage</option>
+                <option value="verkauf">Verkaufsanfrage</option>
+                <option value="support">Support</option>
+                <option value="sonstiges">Sonstiges</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label for="message">Nachricht</label>
+              <textarea id="message" name="message" class="form-control" rows="5" required></textarea>
+            </div>
+            <div class="form-group">
+              <label class="checkbox-container">
+                <input type="checkbox" required>
+                <span class="checkmark"></span>
+                Ich akzeptiere die <a href="datenschutz.html">Datenschutzerklärung</a>
+              </label>
+            </div>
+            <button type="submit" class="btn btn-primary">Nachricht senden</button>
+          </form>
+        </div>
+      </div>
     </section>
-
-    <section>
-      <h2>Was uns wichtig ist</h2>
-      <p>Wir wissen, dass Vertrauen beim Onlinekauf alles ist. Deshalb setzen wir auf Offenheit, faire Preise und saubere Geräte. Kein Fake, keine leeren Versprechen – einfach solide Technik mit Herz.</p>
-      <p>Und wenn doch mal was nicht passt? Dann finden wir gemeinsam eine Lösung – direkt und unkompliziert.</p>
-    </section>
-
-    <section>
-      <h2></h2>
-      <p style="font-size: 0.9em; color: #888;">
-        gebrauchte handys kaufen • iPhone gebraucht • privatverkauf smartphone • handy mit garantie • günstige handys ebay • iPhone XR gebraucht • Ottili Electronics
-      </p>
-    </section>
-
   </main>
 
-  <footer>
-    &copy; 2025 Ottili Electronics – Technik mit Verantwortung aus Schlüsselfeld
+  <footer class="main-footer">
+    <div class="container">
+      <div class="footer-content">
+        <div class="footer-section">
+          <h3>Über uns</h3>
+          <p>Ottili Electronics ist Ihr vertrauenswürdiger Partner für gebrauchte Smartphones. Wir bieten Qualität, Sicherheit und faire Preise.</p>
+          <div class="social-links">
+            <a href="#" aria-label="Facebook"><i class="fab fa-facebook"></i></a>
+            <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+            <a href="#" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
+          </div>
+        </div>
+        <div class="footer-section">
+          <h3>Quick Links</h3>
+          <nav class="footer-nav">
+            <a href="products.html">Produkte</a>
+            <a href="index.html#about">Über uns</a>
+            <a href="garantie.html">Garantie</a>
+            <a href="index.html#contact">Kontakt</a>
+          </nav>
+        </div>
+        <div class="footer-section">
+          <h3>Rechtliches</h3>
+          <nav class="footer-nav">
+            <a href="impressum.html">Impressum</a>
+            <a href="datenschutz.html">Datenschutz</a>
+            <a href="agb.html">AGB</a>
+            <a href="widerruf.html">Widerrufsbelehrung</a>
+          </nav>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>&copy; 2024 Ottili Electronics. Alle Rechte vorbehalten.</p>
+      </div>
+    </div>
   </footer>
+
+  <div class="cookie-banner" id="cookie-banner">
+    <div class="cookie-content">
+      <p>Wir verwenden Cookies, um Ihre Erfahrung auf unserer Website zu verbessern.</p>
+      <div class="cookie-buttons">
+        <button class="btn btn-primary" onclick="acceptCookies()">Akzeptieren</button>
+        <button class="btn btn-secondary" onclick="showCookieSettings()">Einstellungen</button>
+      </div>
+    </div>
+  </div>
+
+  <div class="back-to-top" id="back-to-top">
+    <i class="fas fa-arrow-up"></i>
+  </div>
+
+  <script>
+    // Smooth Scrolling
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener('click', function (e) {
+        e.preventDefault();
+        document.querySelector(this.getAttribute('href')).scrollIntoView({
+          behavior: 'smooth'
+        });
+      });
+    });
+
+    // Sticky Header
+    window.addEventListener('scroll', function() {
+      const header = document.querySelector('.main-header');
+      header.classList.toggle('sticky', window.scrollY > 0);
+    });
+
+    // Produkte laden und anzeigen
+    async function loadProducts() {
+      try {
+        const response = await fetch('data/products.json');
+        const data = await response.json();
+        displayProducts(data.products);
+      } catch (error) {
+        console.error('Fehler beim Laden der Produkte:', error);
+      }
+    }
+
+    function displayProducts(products) {
+      const grid = document.getElementById('products-grid');
+      grid.innerHTML = products.map(product => `
+        <div class="product-card">
+          <img src="${product.images[0]}" alt="${product.name}" class="product-image">
+          <div class="product-info">
+            <h3 class="product-title">${product.name}</h3>
+            <p class="product-price">${product.price.toFixed(2)} €</p>
+            <span class="product-condition condition-${product.condition}">
+              ${getConditionText(product.condition)}
+            </span>
+            <p class="product-stock">${product.stock} verfügbar</p>
+            <p class="product-description">${product.description}</p>
+            <div class="product-actions">
+              <button class="btn btn-primary" onclick="showProductDetails('${product.id}')">
+                Details anzeigen
+              </button>
+            </div>
+          </div>
+        </div>
+      `).join('');
+    }
+
+    function getConditionText(condition) {
+      const conditions = {
+        'new': 'Wie neu',
+        'good': 'Sehr gut',
+        'fair': 'Gut'
+      };
+      return conditions[condition] || condition;
+    }
+
+    function showProductDetails(productId) {
+      // Hier können Sie ein Modal mit den Produktdetails anzeigen
+      // oder zur Produktdetailseite navigieren
+    }
+
+    // Produkte beim Laden der Seite anzeigen
+    document.addEventListener('DOMContentLoaded', loadProducts);
+
+    // Suchfunktion
+    document.getElementById('product-search').addEventListener('input', (e) => {
+      const searchTerm = e.target.value.toLowerCase();
+      const products = document.querySelectorAll('.product-card');
+      
+      products.forEach(product => {
+        const title = product.querySelector('.product-title').textContent.toLowerCase();
+        const description = product.querySelector('.product-description').textContent.toLowerCase();
+        
+        if (title.includes(searchTerm) || description.includes(searchTerm)) {
+          product.style.display = 'block';
+        } else {
+          product.style.display = 'none';
+        }
+      });
+    });
+
+    // Filterfunktion
+    document.getElementById('condition-filter').addEventListener('change', (e) => {
+      const condition = e.target.value;
+      const products = document.querySelectorAll('.product-card');
+      
+      products.forEach(product => {
+        if (condition === 'all' || product.querySelector('.product-condition').classList.contains(`condition-${condition}`)) {
+          product.style.display = 'block';
+        } else {
+          product.style.display = 'none';
+        }
+      });
+    });
+
+    // Sortierfunktion
+    document.getElementById('sort-filter').addEventListener('change', (e) => {
+      const sortBy = e.target.value;
+      const grid = document.getElementById('products-grid');
+      const products = Array.from(grid.children);
+      
+      products.sort((a, b) => {
+        const aValue = a.querySelector(sortBy.includes('price') ? '.product-price' : '.product-title').textContent;
+        const bValue = b.querySelector(sortBy.includes('price') ? '.product-price' : '.product-title').textContent;
+        
+        if (sortBy.includes('price')) {
+          return sortBy.includes('asc') 
+            ? parseFloat(aValue) - parseFloat(bValue)
+            : parseFloat(bValue) - parseFloat(aValue);
+        } else {
+          return sortBy.includes('asc')
+            ? aValue.localeCompare(bValue)
+            : bValue.localeCompare(aValue);
+        }
+      });
+      
+      products.forEach(product => grid.appendChild(product));
+    });
+  </script>
+  <script src="system.js"></script>
+  <script src="components.js"></script>
 </body>
 </html>

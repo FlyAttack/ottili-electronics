@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <title>Produkt – Ottili Electronics</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="style.css">
+  <link rel="icon" href="img/logo.png" type="image/png">
+  <style>
+    .product-main { display: flex; flex-wrap: wrap; gap: 40px; margin: 40px 0; }
+    .product-gallery { flex: 1 1 320px; max-width: 400px; }
+    .product-gallery-main { width: 100%; border-radius: 10px; background: #f5f5f5; object-fit: contain; }
+    .product-gallery-thumbs { display: flex; gap: 10px; margin-top: 10px; }
+    .product-gallery-thumbs img { width: 60px; height: 60px; object-fit: cover; border-radius: 6px; cursor: pointer; border: 2px solid transparent; }
+    .product-gallery-thumbs img.active { border-color: var(--accent-color); }
+    .product-info { flex: 2 1 320px; }
+    .product-title { font-size: 2em; margin-bottom: 10px; }
+    .product-meta { margin-bottom: 20px; color: #666; }
+    .product-price { font-size: 1.5em; color: var(--accent-color); font-weight: bold; }
+    .product-condition { margin-left: 15px; font-size: 1em; }
+    .product-availability { margin-left: 15px; font-size: 1em; color: #0a7c2e; }
+    .buy-btn { display: inline-block; margin: 20px 0; padding: 16px 32px; background: var(--accent-color); color: #fff; border: none; border-radius: 8px; font-size: 1.2em; font-weight: 600; text-decoration: none; transition: background 0.2s; }
+    .buy-btn:hover { background: #005bb5; }
+    .product-section { margin: 40px 0; }
+    .product-table { width: 100%; border-collapse: collapse; margin-top: 10px; }
+    .product-table th, .product-table td { border: 1px solid #eee; padding: 8px 12px; text-align: left; }
+    .product-table th { background: #f5f5f5; }
+    .delivery-list { margin: 10px 0 0 20px; }
+    .reviews { background: #f5f5f5; border-radius: 10px; padding: 20px; margin-top: 20px; }
+    .review { margin-bottom: 18px; }
+    .review-author { font-weight: bold; }
+    .social-share { margin: 20px 0; }
+    .social-share a { margin-right: 12px; display: inline-block; }
+    @media (max-width: 900px) { .product-main { flex-direction: column; } .product-gallery, .product-info { max-width: 100%; } }
+  </style>
+</head>
+<body>
+  <header>
+    <a href="index.html"><img src="img/logo.png" alt="Ottili Electronics Logo"></a>
+  </header>
+  <main>
+    <div id="product-content">
+      <!-- Produktdaten werden per JS geladen -->
+    </div>
+    <!-- Weitere Produkte -->
+    <section>
+      <h2>Weitere Produkte</h2>
+      <div class="product-gallery-grid">
+        <div class="product-card">
+          <a href="product.html?ProductID=127098415520">
+            <img src="img/12709841552001.webp" alt="Apple iPhone 6S Logicboard" loading="lazy">
+            <h3>Apple iPhone 6S Logicboard Motherboard 32GB Spacegrau</h3>
+          </a>
+          <div class="product-meta">
+            <span class="product-price">24,95&nbsp;€</span>
+            <span class="product-condition">Gebraucht</span>
+          </div>
+          <a class="product-btn" href="product.html?ProductID=127098415520">Zum Produkt</a>
+        </div>
+        <div class="product-card">
+          <a href="product.html?ProductID=127090621821">
+            <img src="img/12709062182101.webp" alt="iPhone 6 Konvolut" loading="lazy">
+            <h3>iPhone 6 Konvolut - 3x iPhone 6 2x iPhone 6S</h3>
+          </a>
+          <div class="product-meta">
+            <span class="product-price">1,00&nbsp;€ (Auktion)</span>
+            <span class="product-condition">Als Ersatzteil / defekt</span>
+          </div>
+          <a class="product-btn" href="product.html?ProductID=127090621821">Zum Produkt</a>
+        </div>
+        <div class="product-card">
+          <a href="product.html?ProductID=127098473711">
+            <img src="img/12709847371101.webp" alt="Intel Core i5-650" loading="lazy">
+            <h3>Intel Core i5-650 650 - 3.2 GHz Dual-Core (Desktop-Prozessor)</h3>
+          </a>
+          <div class="product-meta">
+            <span class="product-price">Apr 95</span>
+            <span class="product-condition">Gebraucht</span>
+          </div>
+          <a class="product-btn" href="product.html?ProductID=127098473711">Zum Produkt</a>
+        </div>
+        <div class="product-card">
+          <a href="product.html?ProductID=127098473781">
+            <img src="img/12709847378101.webp" alt="Hynix HMT325S6BFR8C-H9" loading="lazy">
+            <h3>Hynix HMT325S6BFR8C-H9 (2GB, PC3-10600)</h3>
+          </a>
+          <div class="product-meta">
+            <span class="product-price">Apr 95</span>
+            <span class="product-condition">Gebraucht</span>
+          </div>
+          <a class="product-btn" href="product.html?ProductID=127098473781">Zum Produkt</a>
+        </div>
+        <div class="product-card">
+          <a href="product.html?ProductID=127169175635">
+            <img src="img/12716917563501.webp" alt="Apple Clear Case mit MagSafe" loading="lazy">
+            <h3>Apple Clear Case mit MagSafe für iPhone 13 Pro</h3>
+          </a>
+          <div class="product-meta">
+            <span class="product-price">59,00&nbsp;€</span>
+            <span class="product-condition">Neu</span>
+          </div>
+          <a class="product-btn" href="product.html?ProductID=127169175635">Zum Produkt</a>
+        </div>
+        <div class="product-card">
+          <a href="product.html?ProductID=127169184545">
+            <img src="img/12716918454501.webp" alt="Jetech Magnetisch Hülle" loading="lazy">
+            <h3>Jetech Magnetisch Hülle für iPhone 13 Pro</h3>
+          </a>
+          <div class="product-meta">
+            <span class="product-price">16,95&nbsp;€</span>
+            <span class="product-condition">Neu</span>
+          </div>
+          <a class="product-btn" href="product.html?ProductID=127169184545">Zum Produkt</a>
+        </div>
+        <div class="product-card">
+          <a href="product.html?ProductID=127169204415">
+            <img src="img/12716920441501.webp" alt="Anker Powerbank 20000mAh" loading="lazy">
+            <h3>Anker Powerbank 20000mAh 20W USB-C</h3>
+          </a>
+          <div class="product-meta">
+            <span class="product-price">37,95&nbsp;€</span>
+            <span class="product-condition">Neu</span>
+          </div>
+          <a class="product-btn" href="product.html?ProductID=127169204415">Zum Produkt</a>
+        </div>
+        <div class="product-card">
+          <a href="product.html?ProductID=127098294765">
+            <img src="img/12709829476501.webp" alt="Apple 20W USB-C Power Adapter" loading="lazy">
+            <h3>Apple 20W USB-C Power Adapter (2023)</h3>
+          </a>
+          <div class="product-meta">
+            <span class="product-price">28,95&nbsp;€</span>
+            <span class="product-condition">Neu</span>
+          </div>
+          <a class="product-btn" href="product.html?ProductID=127098294765">Zum Produkt</a>
+        </div>
+      </div>
+    </section>
+  </main>
+  <footer>
+    &copy; 2025 Ottili Electronics – Technik mit Verantwortung aus Schlüsselfeld
+  </footer>
+  <script>
+    // Produktdaten (Platzhalter, später erweiterbar)
+    const products = {
+      "127098415520": {
+        title: "Apple iPhone 6S Logicboard Motherboard 32GB Spacegrau",
+        price: "24,95 €",
+        condition: "Gebraucht",
+        available: true,
+        ebay: "https://www.ebay.de/itm/127098415520",
+        images: ["img/12709841552001.webp", "img/12709841552002.webp"],
+        description: "Hier folgt die ausführliche Produktbeschreibung für das Apple iPhone 6S Logicboard...",
+        specs: { "Modell": "iPhone 6S", "Speicher": "32GB", "Farbe": "Spacegrau", "Prozessor": "A9" },
+        delivery: ["Logicboard", "Sicher verpackt"],
+        reviews: [
+          { author: "Max M.", text: "Schneller Versand, alles wie beschrieben!" },
+          { author: "Lisa S.", text: "Sehr freundlicher Kontakt, gerne wieder." }
+        ]
+      },
+      "127090621821": {
+        title: "iPhone 6 Konvolut - 3x iPhone 6 2x iPhone 6S",
+        price: "1,00 € (Auktion)",
+        condition: "Als Ersatzteil / defekt",
+        available: true,
+        ebay: "https://www.ebay.de/itm/127090621821",
+        images: ["img/12709062182101.webp"],
+        description: "Konvolut aus mehreren iPhones, ideal für Bastler oder Ersatzteile.",
+        specs: { "Geräte": "3x iPhone 6, 2x iPhone 6S", "Zustand": "Defekt/Ersatzteil" },
+        delivery: ["Alle abgebildeten Geräte"],
+        reviews: []
+      },
+      // ... weitere Produkte analog ...
+    };
+
+    // Hilfsfunktion: Hole Parameter aus URL
+    function getParam(name) {
+      const url = new URL(window.location.href);
+      return url.searchParams.get(name);
+    }
+
+    // Produktanzeige generieren
+    function renderProduct() {
+      const id = getParam('ProductID');
+      const p = products[id];
+      if (!p) {
+        document.getElementById('product-content').innerHTML = '<p>Produkt nicht gefunden.</p>';
+        return;
+      }
+      // Galerie
+      let gallery = `<div class='product-gallery'>
+        <img id='main-img' class='product-gallery-main' src='${p.images[0]}' alt='${p.title}' loading='lazy'>
+        <div class='product-gallery-thumbs'>`;
+      p.images.forEach((img, i) => {
+        gallery += `<img src='${img}' alt='${p.title} Bild ${i+1}' loading='lazy' onclick='document.getElementById("main-img").src="${img}"; setActiveThumb(${i});' id='thumb${i}' class='${i===0?"active":""}'>`;
+      });
+      gallery += `</div></div>`;
+      // Technische Daten
+      let specs = '<table class="product-table">';
+      for (const key in p.specs) {
+        specs += `<tr><th>${key}</th><td>${p.specs[key]}</td></tr>`;
+      }
+      specs += '</table>';
+      // Lieferumfang
+      let delivery = '<ul class="delivery-list">';
+      p.delivery.forEach(item => { delivery += `<li>${item}</li>`; });
+      delivery += '</ul>';
+      // Bewertungen
+      let reviews = '<div class="reviews"><h3>Kundenbewertungen</h3>';
+      if (p.reviews.length === 0) {
+        reviews += '<p>Noch keine Bewertungen vorhanden.</p>';
+      } else {
+        p.reviews.forEach(r => {
+          reviews += `<div class="review"><span class="review-author">${r.author}:</span> <span>${r.text}</span></div>`;
+        });
+      }
+      reviews += '</div>';
+      // Social Media
+      let social = `<div class="social-share">
+        <span>Teilen:</span>
+        <a href="https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(p.ebay)}" target="_blank" title="Facebook"><img src="img/facebook.svg" alt="Facebook" width="28"></a>
+        <a href="https://twitter.com/intent/tweet?url=${encodeURIComponent(p.ebay)}" target="_blank" title="Twitter"><img src="img/twitter.svg" alt="Twitter" width="28"></a>
+        <a href="https://wa.me/?text=${encodeURIComponent(p.ebay)}" target="_blank" title="WhatsApp"><img src="img/whatsapp.svg" alt="WhatsApp" width="28"></a>
+      </div>`;
+      // Zusammenbauen
+      document.getElementById('product-content').innerHTML = `
+        <div class="product-main">
+          ${gallery}
+          <div class="product-info">
+            <div class="product-title">${p.title}</div>
+            <div class="product-meta">
+              <span class="product-price">${p.price}</span>
+              <span class="product-condition">${p.condition}</span>
+              <span class="product-availability">${p.available ? 'Sofort verfügbar' : 'Nicht verfügbar'}</span>
+            </div>
+            <a class="buy-btn" href="${p.ebay}" target="_blank">Jetzt auf eBay kaufen</a>
+            <div class="product-section">
+              <h3>Beschreibung</h3>
+              <p>${p.description}</p>
+            </div>
+            <div class="product-section">
+              <h3>Technische Daten</h3>
+              ${specs}
+            </div>
+            <div class="product-section">
+              <h3>Lieferumfang</h3>
+              ${delivery}
+            </div>
+            ${reviews}
+            ${social}
+          </div>
+        </div>
+      `;
+    }
+    // Thumb-Highlight
+    window.setActiveThumb = function(idx) {
+      document.querySelectorAll('.product-gallery-thumbs img').forEach((el, i) => {
+        el.classList.toggle('active', i === idx);
+      });
+    }
+    renderProduct();
+  </script>
+</body>
+</html> 

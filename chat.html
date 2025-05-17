@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="de" data-theme="light">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Live-Chat - Ottili Electronics</title>
+    <meta name="description" content="Kontaktieren Sie uns über unseren Live-Chat. Wir sind 24/7 für Sie da.">
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="css/chat.css">
+    <link rel="icon" href="img/logo.png" type="image/png">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <header class="main-header">
+        <!-- Header-Inhalt wie in index.html -->
+    </header>
+
+    <main>
+        <section class="chat-hero">
+            <div class="container">
+                <h1>Live-Chat Support</h1>
+                <p>Wir sind 24/7 für Sie da - schnell, kompetent und persönlich</p>
+            </div>
+        </section>
+
+        <section class="chat-container">
+            <div class="container">
+                <div class="chat-wrapper">
+                    <div class="chat-sidebar">
+                        <div class="chat-info">
+                            <h2>Support-Team</h2>
+                            <p>Online: <span class="status-indicator online"></span></p>
+                        </div>
+                        <div class="chat-options">
+                            <button class="btn btn-secondary" id="new-chat">
+                                <i class="fas fa-plus"></i> Neuer Chat
+                            </button>
+                            <button class="btn btn-secondary" id="upload-file">
+                                <i class="fas fa-upload"></i> Datei hochladen
+                            </button>
+                        </div>
+                        <div class="chat-history">
+                            <h3>Verlauf</h3>
+                            <ul id="chat-history-list">
+                                <!-- Wird dynamisch gefüllt -->
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="chat-main">
+                        <div class="chat-messages" id="chat-messages">
+                            <div class="message system">
+                                <p>Willkommen im Live-Chat! Wie können wir Ihnen helfen?</p>
+                            </div>
+                        </div>
+
+                        <div class="chat-input">
+                            <form id="chat-form">
+                                <div class="input-group">
+                                    <input type="text" id="message-input" placeholder="Ihre Nachricht..." required>
+                                    <button type="submit" class="btn btn-primary">
+                                        <i class="fas fa-paper-plane"></i>
+                                    </button>
+                                </div>
+                                <div class="input-options">
+                                    <button type="button" class="btn btn-icon" id="emoji-picker">
+                                        <i class="far fa-smile"></i>
+                                    </button>
+                                    <button type="button" class="btn btn-icon" id="attachment">
+                                        <i class="fas fa-paperclip"></i>
+                                    </button>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="chat-features">
+            <div class="container">
+                <h2>Unsere Chat-Features</h2>
+                <div class="features-grid">
+                    <div class="feature-card">
+                        <i class="fas fa-clock"></i>
+                        <h3>24/7 Verfügbarkeit</h3>
+                        <p>Unser Support-Team ist rund um die Uhr für Sie da</p>
+                    </div>
+                    <div class="feature-card">
+                        <i class="fas fa-robot"></i>
+                        <h3>KI-Assistent</h3>
+                        <p>Intelligente Antworten auf häufige Fragen</p>
+                    </div>
+                    <div class="feature-card">
+                        <i class="fas fa-file-upload"></i>
+                        <h3>Datei-Upload</h3>
+                        <p>Teilen Sie Screenshots und Dokumente</p>
+                    </div>
+                    <div class="feature-card">
+                        <i class="fas fa-history"></i>
+                        <h3>Chat-Verlauf</h3>
+                        <p>Greifen Sie auf frühere Gespräche zu</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="main-footer">
+        <!-- Footer-Inhalt wie in index.html -->
+    </footer>
+
+    <!-- Emoji Picker -->
+    <div class="emoji-picker-container" id="emoji-picker-container">
+        <!-- Wird dynamisch gefüllt -->
+    </div>
+
+    <!-- File Upload Modal -->
+    <div class="modal" id="upload-modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3>Datei hochladen</h3>
+                <button class="close-modal">&times;</button>
+            </div>
+            <div class="modal-body">
+                <form id="upload-form">
+                    <div class="form-group">
+                        <label for="file-input">Datei auswählen</label>
+                        <input type="file" id="file-input" multiple>
+                    </div>
+                    <div class="form-group">
+                        <label for="file-description">Beschreibung (optional)</label>
+                        <textarea id="file-description" rows="3"></textarea>
+                    </div>
+                </form>
+                <div class="upload-preview" id="upload-preview">
+                    <!-- Wird dynamisch gefüllt -->
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button class="btn btn-secondary" id="cancel-upload">Abbrechen</button>
+                <button class="btn btn-primary" id="confirm-upload">Hochladen</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="js/chat.js"></script>
+</body>
+</html> 
