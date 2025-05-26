@@ -26,13 +26,6 @@
       box-shadow: 0 0 20px rgba(0,0,0,0.3);
     }
 
-    .obs {
-      width: 100vw;
-      height: 100vh;
-      padding: 3rem;
-      font-size: 2.5rem;
-    }
-
     h1 {
       color: #00bfff;
       font-size: 2rem;
@@ -58,110 +51,102 @@
   </div>
 
   <script>
-    const params = new URLSearchParams(window.location.search);
-    const mode = params.get('') || 'none';
     const container = document.getElementById('main');
 
-    if (mode !== 'admin' && mode !== 'obs') {
-      container.innerHTML = '<h1>Zugriff verweigert</h1><p>Verpiss dich.</p>';
-    } else {
-      if (mode === 'obs') container.classList.add('obs');
+    fetch('meetings.json')
+      .then(response => response.json())
+      .then(meetings => {
+        const now = new Date();
+        const parseTime = (dateStr, timeStr) => {
+          const [start, end] = timeStr.split("-");
+          const [sh, sm] = start.split(":").map(Number);
+          const [eh, em] = end.split(":").map(Number);
+          const dateParts = dateStr.split("-").map(Number);
+          const startDate = new Date(dateParts[0], dateParts[1] - 1, dateParts[2], sh, sm);
+          const endDate = new Date(dateParts[0], dateParts[1] - 1, dateParts[2], eh, em);
+          return { startDate, endDate };
+        };
 
-      fetch('meetings.json')
-        .then(response => response.json())
-        .then(meetings => {
-          const now = new Date();
-          const parseTime = (dateStr, timeStr) => {
-            const [start, end] = timeStr.split("-");
-            const [sh, sm] = start.split(":").map(Number);
-            const [eh, em] = end.split(":").map(Number);
-            const dateParts = dateStr.split("-").map(Number);
-            const startDate = new Date(dateParts[0], dateParts[1] - 1, dateParts[2], sh, sm);
-            const endDate = new Date(dateParts[0], dateParts[1] - 1, dateParts[2], eh, em);
-            return { startDate, endDate };
-          };
+        const upcoming = meetings.map(m => {
+          const { startDate, endDate } = parseTime(m.datum, m.zeit);
+          return { ...m, startDate, endDate };
+        }).sort((a, b) => a.startDate - b.startDate);
 
-          const upcoming = meetings.map(m => {
-            const { startDate, endDate } = parseTime(m.datum, m.zeit);
-            return { ...m, startDate, endDate };
-          }).sort((a, b) => a.startDate - b.startDate);
+        const currentMeeting = upcoming.find(m => now >= m.startDate && now <= m.endDate);
+        const pastMeetings = upcoming.filter(m => m.endDate < now);
+        const futureMeetings = upcoming.filter(m => m.startDate > now);
+        const lastMeeting = pastMeetings[pastMeetings.length - 1];
+        const nextMeeting = futureMeetings[0];
 
-          const currentMeeting = upcoming.find(m => now >= m.startDate && now <= m.endDate);
-          const pastMeetings = upcoming.filter(m => m.endDate < now);
-          const futureMeetings = upcoming.filter(m => m.startDate > now);
-          const lastMeeting = pastMeetings[pastMeetings.length - 1];
-          const nextMeeting = futureMeetings[0];
+        function formatDate(d) {
+          return `${String(d.getDate()).padStart(2, '0')}.${String(d.getMonth()+1).padStart(2, '0')}.${d.getFullYear()}`;
+        }
 
-          function formatDate(d) {
-            return `${String(d.getDate()).padStart(2, '0')}.${String(d.getMonth()+1).padStart(2, '0')}.${d.getFullYear()}`;
-          }
+        function formatTimeRange(start, end) {
+          return `${start.getHours()}:${String(start.getMinutes()).padStart(2, '0')}–${end.getHours()}:${String(end.getMinutes()).padStart(2, '0')}`;
+        }
 
-          function formatTimeRange(start, end) {
-            return `${start.getHours()}:${String(start.getMinutes()).padStart(2, '0')}–${end.getHours()}:${String(end.getMinutes()).padStart(2, '0')}`;
-          }
-
-          function updateCountdown(targetDate, label, extra = '') {
-            const update = () => {
-              const now = new Date();
-              const diff = targetDate - now;
-              if (diff <= 0) {
-                clearInterval(interval);
-                location.reload(); // Neuladen bei Ablauf
-              } else {
-                const h = Math.floor(diff / 3600000);
-                const m = Math.floor((diff % 3600000) / 60000);
-                const s = Math.floor((diff % 60000) / 1000);
-                container.querySelector('.countdown').innerText = `${label}: ${h}h ${m}m ${s}s ${extra}`;
-              }
-            };
-            update();
-            const interval = setInterval(update, 1000);
-          }
-
-          if (currentMeeting) {
-            container.innerHTML = `
-              <h1>${currentMeeting.name}</h1>
-              <p><strong>Datum:</strong> ${formatDate(currentMeeting.startDate)}</p>
-              <p><strong>Zeit:</strong> ${formatTimeRange(currentMeeting.startDate, currentMeeting.endDate)}</p>
-              <p><strong>Plattform:</strong> ${currentMeeting.plattform}</p>
-              <p><strong>Teilnehmer:</strong> ${currentMeeting.teilnehmer.join(", ")}</p>
-              <p><strong>Themen:</strong> ${currentMeeting.themen.join(", ")}</p>
-              <p class="countdown">Meeting läuft...</p>
-            `;
-            updateCountdown(currentMeeting.endDate, 'Endet in');
-          } else if (lastMeeting && now - lastMeeting.endDate <= 6 * 60 * 60 * 1000) {
-            container.innerHTML = `
-              <h1>Meeting beendet</h1>
-              <p><strong>Letztes Meeting:</strong> ${lastMeeting.name} am ${formatDate(lastMeeting.startDate)}</p>
-              <p><strong>Nächstes:</strong> ${nextMeeting ? `${nextMeeting.name} am ${formatDate(nextMeeting.startDate)} ${formatTimeRange(nextMeeting.startDate, nextMeeting.endDate)}` : 'keines geplant'}</p>
-            `;
-          } else if (nextMeeting) {
-            const diff = nextMeeting.startDate - now;
-            const showCountdown = diff <= 12 * 60 * 60 * 1000;
-            container.innerHTML = `
-              <h1>Nächstes Meeting: ${nextMeeting.name}</h1>
-              <p><strong>Datum:</strong> ${formatDate(nextMeeting.startDate)}</p>
-              <p><strong>Zeit:</strong> ${formatTimeRange(nextMeeting.startDate, nextMeeting.endDate)}</p>
-              <p><strong>Plattform:</strong> ${nextMeeting.plattform}</p>
-              <p><strong>Teilnehmer:</strong> ${nextMeeting.teilnehmer.join(", ")}</p>
-              <p><strong>Themen:</strong> ${nextMeeting.themen.join(", ")}</p>
-              ${showCountdown ? `<p class="countdown">Countdown läuft...</p>` : ''}
-            `;
-            if (showCountdown) {
-              updateCountdown(nextMeeting.startDate, 'Beginnt in');
+        function updateCountdown(targetDate, label) {
+          const update = () => {
+            const now = new Date();
+            const diff = targetDate - now;
+            if (diff <= 0) {
+              clearInterval(interval);
+              location.reload(); // Neuladen bei Ablauf
+            } else {
+              const h = Math.floor(diff / 3600000);
+              const m = Math.floor((diff % 3600000) / 60000);
+              const s = Math.floor((diff % 60000) / 1000);
+              container.querySelector('.countdown').innerText = `${label}: ${h}h ${m}m ${s}s`;
             }
-          } else {
-            container.innerHTML = `
-              <h1>Kein Meeting geplant</h1>
-              <p>In den nächsten 7 Tagen ist kein Meeting angesetzt.</p>
-            `;
+          };
+          update();
+          const interval = setInterval(update, 1000);
+        }
+
+        if (currentMeeting) {
+          container.innerHTML = `
+            <h1>${currentMeeting.name}</h1>
+            <p><strong>Datum:</strong> ${formatDate(currentMeeting.startDate)}</p>
+            <p><strong>Zeit:</strong> ${formatTimeRange(currentMeeting.startDate, currentMeeting.endDate)}</p>
+            <p><strong>Plattform:</strong> ${currentMeeting.plattform}</p>
+            <p><strong>Teilnehmer:</strong> ${currentMeeting.teilnehmer.join(", ")}</p>
+            <p><strong>Themen:</strong> ${currentMeeting.themen.join(", ")}</p>
+            <p class="countdown">Meeting läuft...</p>
+          `;
+          updateCountdown(currentMeeting.endDate, 'Endet in');
+        } else if (lastMeeting && now - lastMeeting.endDate <= 6 * 60 * 60 * 1000) {
+          container.innerHTML = `
+            <h1>Meeting beendet</h1>
+            <p><strong>Letztes Meeting:</strong> ${lastMeeting.name} am ${formatDate(lastMeeting.startDate)}</p>
+            <p><strong>Nächstes:</strong> ${nextMeeting ? `${nextMeeting.name} am ${formatDate(nextMeeting.startDate)} ${formatTimeRange(nextMeeting.startDate, nextMeeting.endDate)}` : 'keines geplant'}</p>
+          `;
+        } else if (nextMeeting) {
+          const diff = nextMeeting.startDate - now;
+          const showCountdown = diff <= 12 * 60 * 60 * 1000;
+          container.innerHTML = `
+            <h1>Nächstes Meeting: ${nextMeeting.name}</h1>
+            <p><strong>Datum:</strong> ${formatDate(nextMeeting.startDate)}</p>
+            <p><strong>Zeit:</strong> ${formatTimeRange(nextMeeting.startDate, nextMeeting.endDate)}</p>
+            <p><strong>Plattform:</strong> ${nextMeeting.plattform}</p>
+            <p><strong>Teilnehmer:</strong> ${nextMeeting.teilnehmer.join(", ")}</p>
+            <p><strong>Themen:</strong> ${nextMeeting.themen.join(", ")}</p>
+            ${showCountdown ? `<p class="countdown">Countdown läuft...</p>` : ''}
+          `;
+          if (showCountdown) {
+            updateCountdown(nextMeeting.startDate, 'Beginnt in');
           }
-        })
-        .catch(error => {
-          console.error("Fehler beim Laden der JSON:", error);
-          container.innerHTML = "<h1>Fehler beim Laden der Meetings</h1>";
-        });
-    }
+        } else {
+          container.innerHTML = `
+            <h1>Kein Meeting geplant</h1>
+            <p>In den nächsten Tagen ist kein Meeting angesetzt.</p>
+          `;
+        }
+      })
+      .catch(error => {
+        console.error("Fehler beim Laden der JSON:", error);
+        container.innerHTML = "<h1>Fehler beim Laden der Meetings</h1>";
+      });
   </script>
 </body>
 </html>
