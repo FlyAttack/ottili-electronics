@@ -1,8 +1,8 @@
 <!DOCTYPE html>
 <html lang="de">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Ottili Electronics Meeting</title>
   <style>
     body {
@@ -14,8 +14,9 @@
       flex-direction: column;
       align-items: center;
       justify-content: center;
-      height: 100vh;
       text-align: center;
+      min-height: 100vh;
+      padding: 2rem;
     }
 
     h1 {
@@ -24,60 +25,234 @@
       margin-bottom: 0.5em;
     }
 
-    #countdown {
-      font-size: 2rem;
+    #info, #countdown {
+      font-size: 1.2rem;
       margin: 1em 0;
       background: #161b22;
-      padding: 1em 2em;
+      padding: 1.5em 2em;
       border-radius: 1em;
-      box-shadow: 0 0 20px rgba(88, 166, 255, 0.3);
-    }
-
-    .invitees {
-      margin-top: 2em;
-      font-size: 1.1rem;
-      color: #8b949e;
+      box-shadow: 0 0 20px rgba(88, 166, 255, 0.2);
+      max-width: 700px;
+      width: 100%;
     }
 
     .highlight {
       color: #58a6ff;
+      font-weight: bold;
+    }
+
+    #debug {
+      color: #8b949e;
+      margin-top: 2rem;
+      font-size: 0.9rem;
     }
   </style>
 </head>
 <body>
-
   <h1>Ottili Electronics Meeting</h1>
-  <div id="countdown">Lade Countdown...</div>
-
-  <div class="invitees">
-    Eingeladene: <span class="highlight">Willi Ott</span> (Veranstalter); 
-    <span class="highlight">Artur Gera</span>
-  </div>
+  <div id="countdown">Lade Daten...</div>
+  <div id="info"></div>
 
   <script>
-    const countdownElement = document.getElementById("countdown");
-    const targetDate = new Date("2025-05-26T21:15:00");
-
-    function updateCountdown() {
-      const now = new Date();
-      const diff = targetDate - now;
-
-      if (diff <= 0) {
-        countdownElement.textContent = "🎉 Das Meeting hat begonnen!";
-        return;
+    const rawData = `[
+      {
+        "name": "Ottili Electronics Meeting",
+        "datum": "2025-05-26",
+        "zeit": "21:15",
+        "ende": "22:05",
+        "teilnehmer": "Willi Ott; Artur Gera",
+        "plattform": "Discord",
+        "notizen": "Geheim",
+        "themen": "Hardware-Pläne"
+      },
+      {
+        "name": "Produktdesign-Besprechung",
+        "datum": "2025-05-28",
+        "zeit": "18:00",
+        "ende": "19:00",
+        "teilnehmer": "Willi Ott; Artur Gera",
+        "plattform": "Discord",
+        "notizen": "",
+        "themen": "Designkonzepte für neue Geräte"
+      },
+      {
+        "name": "Marketingplanung",
+        "datum": "2025-05-30",
+        "zeit": "10:00",
+        "ende": "11:30",
+        "teilnehmer": "Willi Ott; Artur Gera",
+        "plattform": "Discord",
+        "notizen": "",
+        "themen": "Kampagnenplanung Q3"
+      },
+      {
+        "name": "Technik-Testlauf",
+        "datum": "2025-06-01",
+        "zeit": "13:30",
+        "ende": "14:15",
+        "teilnehmer": "Willi Ott; Artur Gera",
+        "plattform": "Discord",
+        "notizen": "",
+        "themen": "Test neuer Sensoren"
+      },
+      {
+        "name": "Meeting 5",
+        "datum": "2025-06-03",
+        "zeit": "12:00",
+        "ende": "13:00",
+        "teilnehmer": "Willi Ott; Artur Gera",
+        "plattform": "Discord",
+        "notizen": "",
+        "themen": "Geheim"
+      },
+      {
+        "name": "Meeting 6",
+        "datum": "2025-06-05",
+        "zeit": "16:00",
+        "ende": "17:00",
+        "teilnehmer": "Willi Ott; Artur Gera",
+        "plattform": "Discord",
+        "notizen": "",
+        "themen": "Software-Architektur"
+      },
+      {
+        "name": "Meeting 7",
+        "datum": "2025-06-07",
+        "zeit": "09:30",
+        "ende": "10:00",
+        "teilnehmer": "Willi Ott; Artur Gera",
+        "plattform": "Discord",
+        "notizen": "",
+        "themen": "Fehleranalyse"
+      },
+      {
+        "name": "Meeting 8",
+        "datum": "2025-06-09",
+        "zeit": "15:15",
+        "ende": "16:00",
+        "teilnehmer": "Willi Ott; Artur Gera",
+        "plattform": "Discord",
+        "notizen": "",
+        "themen": "Neues Projekt"
+      },
+      {
+        "name": "Meeting 9",
+        "datum": "2025-06-11",
+        "zeit": "20:00",
+        "ende": "21:00",
+        "teilnehmer": "Willi Ott; Artur Gera",
+        "plattform": "Discord",
+        "notizen": "",
+        "themen": "Nachbereitung & Q&A"
+      },
+      {
+        "name": "Meeting 10",
+        "datum": "2025-06-13",
+        "zeit": "17:00",
+        "ende": "18:00",
+        "teilnehmer": "Willi Ott; Artur Gera",
+        "plattform": "Discord",
+        "notizen": "",
+        "themen": "Themenfindung für Juli"
       }
+    ]`;
 
-      const days = Math.floor(diff / (1000 * 60 * 60 * 24));
-      const hours = Math.floor((diff / (1000 * 60 * 60)) % 24);
-      const minutes = Math.floor((diff / 1000 / 60) % 60);
-      const seconds = Math.floor((diff / 1000) % 60);
+    const data = JSON.parse(rawData);
 
-      countdownElement.textContent =
-        `${days} Tage, ${hours} Std, ${minutes} Min, ${seconds} Sek`;
+    const params = new URLSearchParams(window.location.search);
+    const mode = params.has("admin") ? "admin" : params.has("obs") ? "obs" : null;
+
+    if (!mode) {
+      document.body.innerHTML = "<h1>🚫 Zugriff verweigert</h1><p>Bitte verlasse die Seite!</p>";
+    } else if (mode === "obs") {
+      document.body.style.padding = "0";
+      document.body.style.justifyContent = "center";
+      document.querySelector("h1").style.display = "none";
     }
 
-    updateCountdown();
-    setInterval(updateCountdown, 1000);
+    const countdownEl = document.getElementById("countdown");
+    const infoEl = document.getElementById("info");
+
+    function pad(n) { return n < 10 ? "0" + n : n; }
+
+    function getDateTime(dateStr, timeStr) {
+      return new Date(`${dateStr}T${pad(timeStr.split(":")[0])}:${pad(timeStr.split(":")[1])}:00`);
+    }
+
+    function render() {
+      const now = new Date();
+      let current = null, next = null, last = null;
+
+      for (let i = 0; i < data.length; i++) {
+        const m = data[i];
+        const start = getDateTime(m.datum, m.zeit);
+        const end = getDateTime(m.datum, m.ende);
+
+        if (now >= start && now <= end) {
+          current = { ...m, start, end };
+          break;
+        } else if (now < start && !next) {
+          next = { ...m, start, end };
+        } else if (now > end) {
+          last = { ...m, start, end };
+        }
+      }
+
+      if (current) {
+        countdownEl.textContent = `🟢 Das Meeting läuft!`;
+        infoEl.innerHTML = `
+          <div class="highlight">${current.name}</div>
+          Ende: ${current.end.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' })}<br>
+          Teilnehmer: ${current.teilnehmer}<br>
+          Plattform: ${current.plattform}<br>
+          Thema: ${current.themen}
+        `;
+      } else if (last && (now - last.end < 6 * 3600000)) {
+        if (next) {
+          countdownEl.textContent = `🕓 Letztes Meeting ist vorbei.`;
+          infoEl.innerHTML = `
+            <div class="highlight">Nächstes: ${next.name}</div>
+            Am ${next.start.toLocaleDateString()} von ${next.start.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' })} bis ${next.end.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' })}<br>
+            Teilnehmer: ${next.teilnehmer}<br>
+            Plattform: ${next.plattform}<br>
+            Thema: ${next.themen}
+          `;
+        } else {
+          countdownEl.textContent = `🚫 Kein weiteres Meeting geplant.`;
+          infoEl.innerHTML = "";
+        }
+      } else if (next) {
+        const diff = next.start - now;
+        if (diff < 12 * 3600000) {
+          const d = Math.floor(diff / (1000 * 60 * 60 * 24));
+          const h = Math.floor((diff / (1000 * 60 * 60)) % 24);
+          const m = Math.floor((diff / 1000 / 60) % 60);
+          const s = Math.floor((diff / 1000) % 60);
+          countdownEl.textContent = `⏳ Nächstes Meeting in ${d}d ${h}h ${m}m ${s}s`;
+          infoEl.innerHTML = `
+            <div class="highlight">${next.name}</div>
+            Am ${next.start.toLocaleDateString()} von ${next.start.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' })} bis ${next.end.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' })}<br>
+            Teilnehmer: ${next.teilnehmer}<br>
+            Plattform: ${next.plattform}<br>
+            Thema: ${next.themen}
+          `;
+        } else {
+          countdownEl.textContent = `📝 Nächstes Meeting: ${next.name}`;
+          infoEl.innerHTML = `
+            Am ${next.start.toLocaleDateString()} von ${next.start.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' })} bis ${next.end.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' })}<br>
+            Teilnehmer: ${next.teilnehmer}<br>
+            Plattform: ${next.plattform}<br>
+            Thema: ${next.themen}
+          `;
+        }
+      } else {
+        countdownEl.textContent = "❌ Kein Meeting geplant in den nächsten 7 Tagen.";
+        infoEl.innerHTML = "";
+      }
+    }
+
+    render();
+    setInterval(render, 1000);
   </script>
 </body>
 </html>
