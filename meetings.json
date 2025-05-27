@@ -1,110 +1,187 @@
 [
-  {
-    "name": "Wöchentliches Meeting",
-    "datum": "2025-05-26",
-    "zeit": "21:30-22:05",
-    "teilnehmer": ["Willi Ott", "Artur Gera"],
-    "plattform": "Discord",
-    "notizen": "Wöchentlicher Statusabgleich",
-    "themen": ["Finanzen", "Rollen", "Wachstum und Fokus"]
-  },
-  {
-    "name": "Mini-Meeting",
-    "datum": "2025-05-28",
-    "zeit": "06:45-07:15",
-    "teilnehmer": ["Willi Ott", "Artur Gera"],
-    "plattform": "Real Life",
-    "notizen": "Noch nicht festgelegt",
-    "themen": ["X", "X", "X"]
-  },
-  {
-    "name": "UX Review",
-    "datum": "2025-05-29",
-    "zeit": "13:00-14:00",
-    "teilnehmer": ["Willi Ott"],
-    "plattform": "Discord",
-    "notizen": "Designfeedback sammeln",
-    "themen": ["Feedback sammeln", "Designentscheidungen"]
-  },
-  {
-    "name": "Marketing Meeting",
-    "datum": "2025-06-01",
-    "zeit": "10:30-11:30",
-    "teilnehmer": ["Artur Gera"],
-    "plattform": "Discord",
-    "notizen": "Marketingstrategie Q3",
-    "themen": ["Werbung", "Social Media", "Contentplan"]
-  },
-  {
-    "name": "Retrospektive",
-    "datum": "2025-06-02",
-    "zeit": "16:00-17:00",
-    "teilnehmer": ["Willi Ott", "Artur Gera"],
-    "plattform": "Discord",
-    "notizen": "Sprint-Rückblick",
-    "themen": ["Was lief gut", "Was lief schlecht", "Verbesserung"]
-  },
-  {
-    "name": "Sprint Planung",
-    "datum": "2025-06-03",
-    "zeit": "09:00-10:00",
-    "teilnehmer": ["Willi Ott"],
-    "plattform": "Discord",
-    "notizen": "Planung nächster Sprint",
-    "themen": ["Tickets zuweisen", "Ziele festlegen"]
-  },
-  {
-    "name": "Code Review",
-    "datum": "2025-06-04",
-    "zeit": "14:00-15:00",
-    "teilnehmer": ["Artur Gera"],
-    "plattform": "Discord",
-    "notizen": "Code Review für Backend",
-    "themen": ["Sauberkeit", "Fehler", "Dokumentation"]
-  },
-  {
-    "name": "Tech Talk",
-    "datum": "2025-06-05",
-    "zeit": "19:00-20:00",
-    "teilnehmer": ["Willi Ott", "Artur Gera"],
-    "plattform": "Discord",
-    "notizen": "Neues Tool vorstellen",
-    "themen": ["Tool-Demo", "Q&A"]
-  },
-  {
-    "name": "Serverwartung",
-    "datum": "2025-06-06",
-    "zeit": "06:00-07:00",
-    "teilnehmer": ["Artur Gera"],
-    "plattform": "Discord",
-    "notizen": "Wartung planen",
-    "themen": ["Downtime", "Backups", "Updates"]
-  },
-  {
-    "name": "Abschlussmeeting",
-    "datum": "2025-06-10",
-    "zeit": "15:00-16:00",
-    "teilnehmer": ["Willi Ott", "Artur Gera"],
-    "plattform": "Discord",
-    "notizen": "Projektende besprechen",
-    "themen": ["Fazit", "Lessons Learned"]
-  },
-  {
-    "name": "Weekly Sync",
-    "datum": "2025-05-26",
-    "zeit": "21:30-22:05",
-    "teilnehmer": ["Willi Ott", "Artur Gera"],
-    "plattform": "Discord",
-    "notizen": "Wöchentlicher Statusabgleich",
-    "themen": ["Roadmap", "Bugs", "Supportanfragen"]
-  },
-  {
-    "name": "Projekt Kickoff",
-    "datum": "2025-05-28",
-    "zeit": "17:00-18:00",
-    "teilnehmer": ["Willi Ott", "Artur Gera"],
-    "plattform": "Discord",
-    "notizen": "Start für neues Projekt X",
-    "themen": ["Ziele", "Teamaufteilung", "Deadlines"]
-  }
+    {
+        "name": "Wöchentliches Meeting",
+        "datum": "2025-05-26",
+        "zeit": "21:30-22:05",
+        "teilnehmer": [
+            "Willi Ott",
+            "Artur Gera"
+        ],
+        "plattform": "Discord",
+        "notizen": "Wöchentliches Meeting über Klarna Schulden, Rechnungen, Rollenverteilung!",
+        "themen": [
+            "Finanzen",
+            "Rollen",
+            "Wachstum und Fokus"
+        ]
+    },
+    {
+        "name": "Mini-Meeting",
+        "datum": "2025-05-28",
+        "zeit": "06:45-07:15",
+        "teilnehmer": [
+            "Willi Ott",
+            "Artur Gera"
+        ],
+        "plattform": "Real Life",
+        "notizen": "Im nächsten Mini-Meeting bei Ottili Electronics besprechen wir die Verkaufsstatistik, gehen tiefer auf das Wachstum ein, prüfen unsere Schuldenlage und überlegen gemeinsam, was wir verbessern können.",
+        "themen": [
+            "Verkaufsstatistik",
+            "Wachstum vertiefen",
+            "Schuldenlage prüfen",
+            "Verbesserungsmöglichkeiten"
+        ]
+    },
+    {
+        "name": "IRL Treffen",
+        "datum": "2025-05-29",
+        "zeit": "13:00-14:00",
+        "teilnehmer": [
+            "Willi Ott",
+            "Artur Gera"
+        ],
+        "plattform": "Büro",
+        "notizen": "Noch nicht festgelegt",
+        "themen": [
+            "X",
+            "X"
+        ]
+    },
+    {
+        "name": "Marketing Meeting",
+        "datum": "2025-06-01",
+        "zeit": "10:30-11:30",
+        "teilnehmer": [
+            "Artur Gera"
+        ],
+        "plattform": "Discord",
+        "notizen": "Marketingstrategie Q3",
+        "themen": [
+            "Werbung",
+            "Social Media",
+            "Contentplan"
+        ]
+    },
+    {
+        "name": "Retrospektive",
+        "datum": "2025-06-02",
+        "zeit": "16:00-17:00",
+        "teilnehmer": [
+            "Willi Ott",
+            "Artur Gera"
+        ],
+        "plattform": "Discord",
+        "notizen": "Sprint-Rückblick",
+        "themen": [
+            "Was lief gut",
+            "Was lief schlecht",
+            "Verbesserung"
+        ]
+    },
+    {
+        "name": "Sprint Planung",
+        "datum": "2025-06-03",
+        "zeit": "09:00-10:00",
+        "teilnehmer": [
+            "Willi Ott"
+        ],
+        "plattform": "Discord",
+        "notizen": "Planung nächster Sprint",
+        "themen": [
+            "Tickets zuweisen",
+            "Ziele festlegen"
+        ]
+    },
+    {
+        "name": "Code Review",
+        "datum": "2025-06-04",
+        "zeit": "14:00-15:00",
+        "teilnehmer": [
+            "Artur Gera"
+        ],
+        "plattform": "Discord",
+        "notizen": "Code Review für Backend",
+        "themen": [
+            "Sauberkeit",
+            "Fehler",
+            "Dokumentation"
+        ]
+    },
+    {
+        "name": "Tech Talk",
+        "datum": "2025-06-05",
+        "zeit": "19:00-20:00",
+        "teilnehmer": [
+            "Willi Ott",
+            "Artur Gera"
+        ],
+        "plattform": "Discord",
+        "notizen": "Neues Tool vorstellen",
+        "themen": [
+            "Tool-Demo",
+            "Q&A"
+        ]
+    },
+    {
+        "name": "Serverwartung",
+        "datum": "2025-06-06",
+        "zeit": "06:00-07:00",
+        "teilnehmer": [
+            "Artur Gera"
+        ],
+        "plattform": "Discord",
+        "notizen": "Wartung planen",
+        "themen": [
+            "Downtime",
+            "Backups",
+            "Updates"
+        ]
+    },
+    {
+        "name": "Abschlussmeeting",
+        "datum": "2025-06-10",
+        "zeit": "15:00-16:00",
+        "teilnehmer": [
+            "Willi Ott",
+            "Artur Gera"
+        ],
+        "plattform": "Discord",
+        "notizen": "Projektende besprechen",
+        "themen": [
+            "Fazit",
+            "Lessons Learned"
+        ]
+    },
+    {
+        "name": "Weekly Sync",
+        "datum": "2025-05-26",
+        "zeit": "21:30-22:05",
+        "teilnehmer": [
+            "Willi Ott",
+            "Artur Gera"
+        ],
+        "plattform": "Discord",
+        "notizen": "Wöchentlicher Statusabgleich",
+        "themen": [
+            "Roadmap",
+            "Bugs",
+            "Supportanfragen"
+        ]
+    },
+    {
+        "name": "Projekt Kickoff",
+        "datum": "2025-05-28",
+        "zeit": "17:00-18:00",
+        "teilnehmer": [
+            "Willi Ott",
+            "Artur Gera"
+        ],
+        "plattform": "Discord",
+        "notizen": "Start für neues Projekt X",
+        "themen": [
+            "Ziele",
+            "Teamaufteilung",
+            "Deadlines"
+        ]
+    }
 ]
